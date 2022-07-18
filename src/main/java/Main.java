@@ -4,10 +4,22 @@ public class Main {
         String res = func.apply("banana", "grape", "smoothie");
         System.out.println(res); // BANANAGRAPESMOOTHIE
 
-				String res2 = func.apply("apple", "orange", "pineapple", "smoothie");
-				System.out.println(res); // APPLEORANGEPINEAPPLESMOOTHIE
+        String res2 = func.apply("apple", "orange", "pineapple", "smoothie");
+        System.out.println(res2); // APPLEORANGEPINEAPPLESMOOTHIE
     }
 }
 
 @FunctionalInterface
-// your code here
+interface ConcatStringFunction {
+    String apply(String... args);
+}
+
+class MyConcatString implements ConcatStringFunction {
+    @Override
+    public String apply(String... args) {
+        for (String arg : args) {
+            return arg;
+        }
+        return null;
+    }
+}
